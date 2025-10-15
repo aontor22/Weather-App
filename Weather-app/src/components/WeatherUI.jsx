@@ -22,7 +22,7 @@ const WeatherUI = () => {
                 </div>
 
                 {loading && <p>Loading…</p>}
-                {error && <p style={{ color: "tomato" }}>{error}</p>}
+                {error && <p className="error" style={{ color: "tomato" }}>{error}</p>}
 
                 {current && (
                     <div className="card">
