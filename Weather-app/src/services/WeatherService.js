@@ -1,5 +1,7 @@
 import { getWeatherClient } from "./WeatherApi";
 
+// Weather data transformation functions
+
 function normalizeCurrent(d) {
   return {
     name: d.location?.name,
@@ -9,6 +11,7 @@ function normalizeCurrent(d) {
     time: d.location?.localtime,
     temp: Math.round(d.current?.temp_c),
     tempF: Math.round(d.current?.temp_f),
+    tempK: Math.round((d.current?.temp_c ?? 0) + 273.15),
     feels: Math.round(d.current?.feelslike_c),
     humidity: d.current?.humidity,
     windKph: d.current?.wind_kph,

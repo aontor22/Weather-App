@@ -2,6 +2,8 @@ import { useWeather } from "../hooks/useWeather";
 import "./Weather.css"
 import React from 'react'
 
+// Weather display component
+
 const WeatherUI = () => {
     const { city, setCity, current, loading, error, load } = useWeather("Dhaka");
 
@@ -28,7 +30,9 @@ const WeatherUI = () => {
                         <img src={`https:${current.icon}`} alt={current.condition} />
                         <div style={{ fontSize: 48 }}>{current.temp}°C</div>
                         <div>{current.condition}</div>
-                        <small>Feels {current.feels}°C • Humidity {current.humidity}% • Wind {current.windKph} kph</small>
+                        <small>Feels: {current.feels}°C / {current.tempF}°F</small>
+                        <br />
+                        <small>Humidity: {current.humidity}% • Wind: {current.windKph} kph</small>
                         <div>{current.time}</div>
                     </div>
                 )}
