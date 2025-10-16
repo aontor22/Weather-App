@@ -5,7 +5,7 @@ export function useWeather(defaultCity = "Dhaka") {
     const [city, setCity] = useState(defaultCity);
     const [current, setCurrent] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [error, scetError] = useState("");
+    const [error, setError] = useState("");
 
     async function load(q = city) {
         try {
