@@ -1,3 +1,11 @@
+/**
+ * @copyright 2025 Udoy Chowdhury
+ * @license Apache-2.0
+ */
+
+
+
+
 const API_KEY = (typeof import.meta !== "undefined" && import.meta.env?.VITE_WEATHERAPI_KEY) || "abdeb32ec42446a1b9752120251510";
 
 const BASE = "https://api.weatherapi.com/v1";
