@@ -2,6 +2,11 @@ const API_KEY = (typeof import.meta !== "undefined" && import.meta.env?.VITE_WEA
 
 const BASE = "https://api.weatherapi.com/v1";
 
+// Api ar jonno akta common class like res 404/200/400
+// Api client 
+// Interceptor (token validation / log check)
+// clean architecture
+
 let _instance = null;
 let _counter = 0;
 
@@ -11,7 +16,7 @@ class WeatherClient {
         this.apiKey = apiKey;
         this.instanceId = ++_counter;
     }
-    
+
     async getCurrent(q, opts = { aqi: "no" }) {
         const url = `${BASE}/current.json?key=${this.apiKey}&q=${encodeURIComponent(q)}&aqi=${opts.aqi ?? "no"}`;
 

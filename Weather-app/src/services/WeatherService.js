@@ -1,6 +1,4 @@
-import { getWeatherClient } from "./WeatherApi";
-
-// Weather data transformation functions
+import apiClient from '../api/apiClient';
 
 function normalizeCurrent(d) {
   return {
@@ -22,12 +20,25 @@ function normalizeCurrent(d) {
 }
 
 export async function fetchCurrentWeather(q) {
-  const api = getWeatherClient();
-  const raw = await api.getCurrent(q);
-  return normalizeCurrent(raw);
+  const response = await apiClient.get('/current.json', {
+    params: { q, aqi: 'no' }
+  });
+
+  if (!response.ok) {
+    throw new Error(response.error);
+  }
+
+  return normalizeCurrent(response.data);
 }
 
 export async function searchLocations(q) {
-  const api = getWeatherClient();
-  return api.search(q);
+  const response = await apiClient.get('/search.json', {
+    params: { q }
+  });
+
+  if (!response.ok) {
+    throw new Error(response.error);
+  }
+
+  return Array.isArray(response.data) ? response.data : [];
 }
