@@ -1,3 +1,10 @@
+/**
+ * @copyright 2025 Udoy Chowdhury
+ * @license Apache-2.0
+ */
+
+
+
 import { useEffect, useState } from "react";
 import { fetchCurrentWeather, searchLocations } from "../services/WeatherService";
 
