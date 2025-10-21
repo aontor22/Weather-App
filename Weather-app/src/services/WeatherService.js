@@ -5,7 +5,6 @@ import apiClient from '../api/apiClient';
  * @license Apache-2.0
  */
 
-
 function normalizeCurrent(d) {
   return {
     name: d.location?.name,
